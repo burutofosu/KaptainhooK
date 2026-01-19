@@ -1,0 +1,14 @@
+[package]
+name = "kh-ui-common"
+description = "KaptainhooK UI - common theme and components"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+kh-domain = { path = "../../domain/kh-domain" }
+kh-log-utils = { workspace = true }
+
+[target.'cfg(windows)'.dependencies]
+windows = { workspace = true }

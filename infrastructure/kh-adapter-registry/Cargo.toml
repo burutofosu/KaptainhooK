@@ -1,0 +1,13 @@
+[package]
+name = "kh-adapter-registry"
+description = "KaptainhooK infrastructure adapter: Windows Registry (IFEO)"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+kh-domain = { workspace = true }
+
+[target.'cfg(windows)'.dependencies]
+windows = { workspace = true }

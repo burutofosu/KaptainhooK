@@ -1,0 +1,17 @@
+[package]
+name = "kh-adapter-service-ipc"
+description = "KaptainhooK adapter: IPC between guard and service"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+kh-domain = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+kh-log-utils = { workspace = true }
+sha2 = { workspace = true }
+
+[target.'cfg(windows)'.dependencies]
+windows = { workspace = true }

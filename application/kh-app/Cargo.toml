@@ -1,0 +1,11 @@
+[package]
+name = "kh-app"
+description = "KaptainhooK application layer - use case implementations"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+kh-domain = { workspace = true }
+kh-engine = { workspace = true }

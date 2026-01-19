@@ -1,0 +1,18 @@
+[package]
+name = "kh-ui-guard"
+description = "KaptainhooK UI - guard friction dialog"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[lib]
+name = "kh_ui_guard"
+path = "src/lib.rs"
+
+[dependencies]
+kh-domain = { workspace = true }
+kh-ui-common = { path = "../kh-ui-common", default-features = false }
+
+[target.'cfg(windows)'.dependencies]
+windows = { workspace = true }

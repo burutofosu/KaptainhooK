@@ -1,0 +1,15 @@
+[package]
+name = "kh-adapter-fs"
+description = "KaptainhooK infrastructure adapter: Filesystem (config, backup, log)"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+kh-domain = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+[target.'cfg(windows)'.dependencies]
+windows = { workspace = true }

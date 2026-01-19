@@ -1,0 +1,102 @@
+[workspace]
+resolver = "2"
+members = [
+    "domain/kh-domain",
+    "engine/kh-engine",
+    "application/kh-app",
+    "composition/kh-composition",
+    "infrastructure/kh-adapter-registry",
+    "infrastructure/kh-adapter-signature",
+    "infrastructure/kh-adapter-fs",
+    "infrastructure/kh-adapter-task",
+    "infrastructure/kh-adapter-clock",
+    "infrastructure/kh-adapter-service-ipc",
+    "infrastructure/kh-adapter-paths",
+    "infrastructure/kh-adapter-guard",
+    "infrastructure/kh-adapter-uninstall-state",
+    "ui/kh-ui-guard",
+    "ui/kh-ui-common",
+    "apps/bootstrap",
+    "apps/guard",
+    "apps/service",
+    "apps/service-restart",
+    "apps/restore",
+    "apps/setup",
+    "apps/cli",
+    "apps/settings",
+    "apps/tray",
+    "apps/uninstall",
+    "shared/kh-log-utils",
+]
+
+[workspace.package]
+version = "0.95.0"
+edition = "2024"
+rust-version = "1.85.0"
+license = "Apache-2.0"
+repository = "https://github.com/burutofosu/KaptainhooK"
+
+[workspace.dependencies]
+# Internal crates
+kh-domain = { path = "domain/kh-domain" }
+kh-engine = { path = "engine/kh-engine" }
+kh-app = { path = "application/kh-app" }
+kh-composition = { path = "composition/kh-composition" }
+kh-adapter-registry = { path = "infrastructure/kh-adapter-registry" }
+kh-adapter-signature = { path = "infrastructure/kh-adapter-signature" }
+kh-adapter-fs = { path = "infrastructure/kh-adapter-fs" }
+kh-adapter-task = { path = "infrastructure/kh-adapter-task" }
+kh-adapter-clock = { path = "infrastructure/kh-adapter-clock" }
+kh-adapter-service-ipc = { path = "infrastructure/kh-adapter-service-ipc" }
+kh-adapter-paths = { path = "infrastructure/kh-adapter-paths" }
+kh-adapter-guard = { path = "infrastructure/kh-adapter-guard" }
+kh-adapter-uninstall-state = { path = "infrastructure/kh-adapter-uninstall-state" }
+kh-ui-guard = { path = "ui/kh-ui-guard" }
+kh-ui-common = { path = "ui/kh-ui-common" }
+kh-log-utils = { path = "shared/kh-log-utils" }
+
+# External crates
+windows = { version = "0.62", features = [
+    "Win32_Foundation",
+    "Foundation",
+    "Win32_System_Registry",
+    "Win32_System_Com",
+    "Win32_System_IO",
+    "Win32_System_Ole",
+    "Win32_System_Pipes",
+    "Win32_System_TaskScheduler",
+    "Win32_System_Variant",
+    "Win32_Security",
+    "Win32_Security_Authorization",
+    "Win32_Security_Cryptography",
+    "Win32_Security_WinTrust",
+    "Win32_System_Threading",
+    "Win32_System_ProcessStatus",
+    "Win32_System_LibraryLoader",
+    "Win32_System_Environment",
+    "Win32_System_RemoteDesktop",
+    "Win32_System_Diagnostics_ToolHelp",
+    "Win32_System_Services",
+    "Win32_System_WindowsProgramming",
+    "Win32_UI_WindowsAndMessaging",
+    "Win32_UI_Shell",
+    "Win32_UI_HiDpi",
+    "Win32_UI_Input_KeyboardAndMouse",
+    "Win32_UI_Controls",
+    "Win32_UI_Controls_Dialogs",
+    "Win32_Graphics_Gdi",
+    "Win32_System_SystemInformation",
+    "Win32_System_Time",
+    "Win32_Storage_FileSystem",
+    "Security_Credentials_UI",
+] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+clap = { version = "4", features = ["derive"] }
+sha2 = "0.10"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true

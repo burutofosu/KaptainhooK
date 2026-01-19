@@ -1,0 +1,13 @@
+[package]
+name = "kh-adapter-guard"
+description = "KaptainhooK adapter: guard runtime"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+kh-domain = { workspace = true }
+
+[target.'cfg(windows)'.dependencies]
+windows = { workspace = true }

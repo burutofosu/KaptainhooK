@@ -1,0 +1,12 @@
+[package]
+name = "kh-adapter-paths"
+description = "KaptainhooK adapter: default path resolution"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+
+[target.'cfg(windows)'.dependencies]
+windows = { workspace = true }
