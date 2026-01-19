@@ -1,0 +1,42 @@
+[package]
+name = "kh-composition"
+description = "KaptainhooK Composition Root - dependency wiring and runtime factories"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+# このクレートはヘキサゴナルアーキテクチャの最外層
+# すべての具体型を把握して配線する
+# アプリケーションコードは個別アダプタではなく本クレートに依存する
+
+[dependencies]
+# ドメイン層（最内層）
+kh-domain = { workspace = true }
+
+# エンジン層（ドメインサービス／ワークフロー）
+kh-engine = { path = "../../engine/kh-engine" }
+
+# アプリケーション層
+kh-app = { path = "../../application/kh-app" }
+
+# インフラアダプタ（全て）
+kh-adapter-registry = { workspace = true }
+kh-adapter-fs = { path = "../../infrastructure/kh-adapter-fs" }
+kh-adapter-signature = { path = "../../infrastructure/kh-adapter-signature" }
+kh-adapter-clock = { path = "../../infrastructure/kh-adapter-clock" }
+kh-adapter-task = { path = "../../infrastructure/kh-adapter-task" }
+kh-adapter-service-ipc = { path = "../../infrastructure/kh-adapter-service-ipc" }
+kh-adapter-paths = { path = "../../infrastructure/kh-adapter-paths" }
+kh-adapter-guard = { path = "../../infrastructure/kh-adapter-guard" }
+
+# UIコンポーネント
+kh-ui-guard = { path = "../../ui/kh-ui-guard" }
+kh-ui-common = { path = "../../ui/kh-ui-common", default-features = false }
+
+serde = { workspace = true }
+sha2 = { workspace = true }
+
+[target.'cfg(windows)'.dependencies]
+windows = { workspace = true }
+kh-adapter-uninstall-state = { path = "../../infrastructure/kh-adapter-uninstall-state" }

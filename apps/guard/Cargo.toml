@@ -1,0 +1,25 @@
+[package]
+name = "kh-guard"
+description = "KaptainhooK executable: guard"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+# 注意: この実行ファイルは kh-composition（コンポジションルート）のみに依存する
+# アダプタクレートへは直接依存しない
+# クリーンアーキテクチャ準拠のため
+
+[dependencies]
+clap = { workspace = true }
+
+# コンポジションルート（全具体実装を提供）
+kh-composition = { workspace = true }
+kh-log-utils = { workspace = true }
+
+[target.'cfg(windows)'.dependencies]
+windows = { workspace = true }
+
+[dev-dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }

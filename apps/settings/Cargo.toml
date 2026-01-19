@@ -1,0 +1,21 @@
+[package]
+name = "kh-settings"
+description = "KaptainhooK settings GUI"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "kh-settings"
+path = "src/main.rs"
+
+[dependencies]
+kh-composition = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tao = "0.28"
+wry = "0.41"
+
+[target.'cfg(windows)'.dependencies]
+windows = { workspace = true }

@@ -1,0 +1,11 @@
+[package]
+name = "kh-domain"
+description = "KaptainhooK domain layer - zero external dependencies"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+# IMPORTANT: This crate must have NO external dependencies
+# All business logic must be pure functions using only std
+[dependencies]

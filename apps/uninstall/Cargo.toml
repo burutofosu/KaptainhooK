@@ -1,0 +1,16 @@
+[package]
+name = "kh-uninstall"
+description = "KaptainhooK standalone uninstaller"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "kh-uninstall"
+path = "src/main.rs"
+
+[dependencies]
+windows = { workspace = true }
+kh-composition = { workspace = true }
+kh-log-utils = { workspace = true }

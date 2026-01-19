@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KaptainhooK 設定</title>
+  <style>
+  /* {{CSS}} */
+  </style>
+</head>
+<body>
+  <div id="app">
+    <header class="app-header">
+      <div class="title-block">
+        <div class="app-title">KaptainhooK</div>
+        <div class="app-subtitle" id="app-subtitle" data-i18n="subtitle">設定</div>
+      </div>
+      <div class="header-actions">
+        <button id="save-btn" class="btn primary" disabled data-i18n="save">保存</button>
+      </div>
+    </header>
+
+    <div id="status" class="status" hidden></div>
+
+    <nav class="tabs" id="tabs">
+      <button class="tab active" data-tab="targets" data-i18n="tab_targets">ターゲット</button>
+      <button class="tab" data-tab="friction" data-i18n="tab_friction">摩擦</button>
+      <button class="tab" data-tab="policy" data-i18n="tab_policy">ポリシー</button>
+      <button class="tab" data-tab="messages" data-i18n="tab_messages">メッセージ</button>
+      <button class="tab" data-tab="reactions" data-i18n="tab_reactions">反応</button>
+      <button class="tab" data-tab="language" data-i18n="tab_language">言語</button>
+      <button class="tab" data-tab="background" data-i18n="tab_background">スキン</button>
+    </nav>
+
+    <main class="content">
+      <section class="panel" id="tab-targets">
+        <div class="panel-header">
+          <h2 data-i18n="targets_header">ターゲット</h2>
+          <div class="panel-actions">
+            <button id="enable-all" class="btn ghost" data-i18n="targets_enable_all">すべて有効</button>
+            <button id="disable-all" class="btn ghost" data-i18n="targets_disable_all">すべて無効</button>
+          </div>
+        </div>
+        <div id="targets-list" class="targets-list"></div>
+
+        <div class="add-target">
+          <input id="new-target" type="text" placeholder="example.exe" data-i18n-placeholder="targets_placeholder" />
+          <button id="add-target" class="btn secondary" data-i18n="targets_add">追加</button>
+        </div>
+        <div class="help" data-i18n="targets_help">ターゲットは .exe で終わり、パス区切り文字を含めないでください。</div>
+      </section>
+
+      <section class="panel" id="tab-friction" hidden>
+        <h2 data-i18n="friction_header">摩擦</h2>
+        <div class="form-grid">
+          <label class="row">
+            <span data-i18n="friction_require_hold">ホールドを要求</span>
+            <input type="checkbox" id="require-hold" />
+          </label>
+          <label class="row">
+            <span data-i18n="friction_hold_ms">ホールド時間 (ms)</span>
+            <input type="number" id="hold-ms" min="500" max="30000" step="100" />
+          </label>
+          <label class="row">
+            <span data-i18n="friction_require_move">ポインター移動を要求</span>
+            <input type="checkbox" id="require-move" />
+          </label>
+          <label class="row">
+            <span data-i18n="friction_move_threshold">移動しきい値 (px)</span>
+            <input type="number" id="move-threshold" min="10" max="500" step="1" />
+          </label>
+          <label class="row">
+            <span data-i18n="friction_emergency_bypass">緊急バイパス</span>
+            <input type="checkbox" id="emergency-bypass" />
+          </label>
+          <label class="row">
+            <span data-i18n="friction_emergency_hold">緊急ホールド (ms)</span>
+            <input type="number" id="emergency-hold" min="1000" max="10000" step="100" />
+          </label>
+        </div>
+      </section>
+
+      <section class="panel" id="tab-policy" hidden>
+        <h2 data-i18n="policy_header">ポリシー</h2>
+        <div class="form-grid">
+          <label class="row">
+            <span data-i18n="policy_allow_non_interactive">非対話セッションを許可</span>
+            <input type="checkbox" id="allow-non-interactive" />
+          </label>
+          <label class="row">
+            <span data-i18n="policy_timeout_seconds">タイムアウト (秒)</span>
+            <input type="number" id="timeout-seconds" min="0" max="600" step="5" />
+          </label>
+          <label class="row">
+            <span data-i18n="policy_auth_mode">認証方式</span>
+            <select id="auth-mode">
+              <option value="friction" data-i18n="policy_auth_friction">摩擦</option>
+              <option value="hello" data-i18n="policy_auth_hello">Windows Hello</option>
+            </select>
+          </label>
+          <label class="row">
+            <span data-i18n="policy_auto_restore">自動復元 (秒)</span>
+            <input type="number" id="auto-restore" min="1" max="300" step="1" />
+          </label>
+        </div>
+
+        <div class="panel-section">
+          <h3 data-i18n="paths_header">検索パス</h3>
+          <div id="paths-list" class="list"></div>
+          <div class="add-path">
+            <input id="new-path" type="text" placeholder="C:\\Program Files\\Example" data-i18n-placeholder="paths_placeholder" />
+            <button id="add-path" class="btn ghost" data-i18n="paths_add">追加</button>
+          </div>
+          <div class="help" data-i18n="paths_help">ローカル絶対パスのみ（UNC不可）。</div>
+        </div>
+      </section>
+
+      <section class="panel" id="tab-background" hidden>
+        <h2 data-i18n="background_header">スキン</h2>
+        <div class="form-grid">
+          <label class="row">
+            <span data-i18n="background_image">スキン</span>
+            <select id="background-image"></select>
+          </label>
+          <label class="row">
+            <span data-i18n="background_opacity">透明度</span>
+            <div class="range-wrap">
+              <input type="range" id="background-opacity" min="0" max="100" step="1" />
+              <span id="background-opacity-value" class="opacity-value">0%</span>
+            </div>
+          </label>
+        </div>
+        <div class="help" data-i18n="background_note">スキンは設定画面にのみ適用されます。</div>
+      </section>
+
+      <section class="panel" id="tab-messages" hidden>
+        <h2 data-i18n="messages_header">メッセージ</h2>
+        <div class="help" data-i18n="messages_desc">確認ダイアログで表示される注意メッセージを設定します。</div>
+
+        <div id="messages-list" class="list"></div>
+
+        <div class="panel-section">
+          <div class="form-grid">
+            <label class="row">
+              <span data-i18n="messages_id">ID</span>
+              <input id="message-id" type="text" placeholder="warn-01" data-i18n-placeholder="messages_id_placeholder" />
+            </label>
+            <label class="row row-textarea">
+              <span data-i18n="messages_text">テキスト</span>
+              <textarea id="message-text" rows="3" placeholder="表示する注意文..." data-i18n-placeholder="messages_text_placeholder"></textarea>
+            </label>
+          </div>
+          <button id="add-message" class="btn secondary" data-i18n="messages_add">追加</button>
+        </div>
+      </section>
+
+      <section class="panel" id="tab-reactions" hidden>
+        <h2 data-i18n="reactions_header">反応ルール</h2>
+
+        <div class="panel-section">
+          <div class="field-inline">
+            <label for="reaction-preset" data-i18n="reactions_preset">プリセット</label>
+            <select id="reaction-preset">
+              <option value="all_log" data-i18n="reactions_preset_all_log">すべてログ</option>
+              <option value="strong" data-i18n="reactions_preset_strong">強</option>
+              <option value="medium" data-i18n="reactions_preset_medium">中</option>
+              <option value="weak" data-i18n="reactions_preset_weak">弱</option>
+            </select>
+          </div>
+          <div class="help" data-i18n="reactions_preset_note">プリセットは既定ルールのみ更新。上書きは保持。</div>
+        </div>
+
+        <div class="panel-section">
+          <div class="reaction-table">
+            <div class="reaction-row header">
+              <div data-i18n="reactions_category">起動元カテゴリ</div>
+              <div data-i18n="reactions_action">対応</div>
+            </div>
+            <div class="reaction-row">
+              <div data-i18n="reactions_mail">メール</div>
+              <select id="reaction-mail"></select>
+            </div>
+            <div class="reaction-row">
+              <div data-i18n="reactions_macro">マクロ</div>
+              <select id="reaction-macro"></select>
+            </div>
+            <div class="reaction-row">
+              <div data-i18n="reactions_relay">中継</div>
+              <select id="reaction-relay"></select>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-section">
+          <h3 data-i18n="reactions_overrides">ターゲット別設定</h3>
+          <div class="form-grid">
+            <label class="row">
+              <span data-i18n="reactions_override_select_label">個別ルール</span>
+              <select id="override-target-select"></select>
+            </label>
+          </div>
+          <div class="help" data-i18n="reactions_override_select_help">
+            追加したターゲットだけが表示されます。
+          </div>
+
+          <div id="overrides-list" class="list"></div>
+
+          <div class="add-override">
+            <input id="override-target" type="text" placeholder="cmd.exe" data-i18n-placeholder="reactions_override_placeholder" />
+            <button id="add-override" class="btn ghost" data-i18n="reactions_override_add">追加</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="tab-language" hidden>
+        <h2 data-i18n="language_header">言語</h2>
+        <div class="form-grid">
+          <label class="row">
+            <span data-i18n="language_ui">UI言語</span>
+            <select id="language">
+              <option value="ja" data-i18n="language_ja">日本語</option>
+              <option value="en" data-i18n="language_en">English</option>
+            </select>
+          </label>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="path" id="config-path"></div>
+    </footer>
+  </div>
+
+  <div id="conflict-modal" class="modal" hidden>
+    <div class="modal-card">
+      <div class="modal-title" data-i18n="conflict_title">競合を検出しました</div>
+      <div class="modal-body" id="conflict-body"></div>
+      <div class="modal-actions">
+        <button id="conflict-cancel" class="btn ghost" data-i18n="conflict_cancel">キャンセル</button>
+        <button id="conflict-apply" class="btn primary" data-i18n="conflict_apply">適用</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  /* {{JS}} */
+  </script>
+</body>
+</html>

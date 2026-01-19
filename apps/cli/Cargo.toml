@@ -1,0 +1,22 @@
+[package]
+name = "kh-cli"
+description = "KaptainhooK executable: cli"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+# 注意: このクレートは kh-composition（コンポジションルート）のみに依存する
+# 具体アダプタはすべて kh-composition 経由で参照する
+# 依存性逆転を保ち、アダプタ差し替えを容易にする
+
+[dependencies]
+clap = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# コンポジションルート（唯一の内部依存）
+kh-composition = { path = "../../composition/kh-composition" }
+
+[target.'cfg(windows)'.dependencies]
+windows = { workspace = true }

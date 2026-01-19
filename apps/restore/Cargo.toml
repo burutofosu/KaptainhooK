@@ -1,0 +1,10 @@
+[package]
+name = "kh-restore"
+description = "KaptainhooK executable: restore-only task"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+kh-composition = { workspace = true }

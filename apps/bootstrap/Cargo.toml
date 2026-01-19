@@ -1,0 +1,13 @@
+[package]
+name = "kh-bootstrap"
+description = "KaptainhooK executable: IFEO bootstrap entry point"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+# Bootstrap is intentionally minimal - it only launches kh-guard
+
+[target.'cfg(windows)'.dependencies]
+windows = { workspace = true }
