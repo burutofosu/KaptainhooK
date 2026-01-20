@@ -207,7 +207,7 @@ fn secure_install_bin_dir() -> Result<PathBuf> {
 const APP_NAME: &str = "KaptainhooK";
 const APP_VERSION: &str = env!("CARGO_PKG_VERSION");
 const APP_PUBLISHER: &str = "KaptainhooK Project";
-const APP_URL: &str = "https://github.com/burutofosu/KaptainhooK";
+const APP_URL: &str = "https://github.com/example/kaptainhook-oss";
 const PROGRAM_META: ProgramMetadata<'static> = ProgramMetadata {
     name: APP_NAME,
     version: APP_VERSION,
@@ -639,8 +639,8 @@ Please read the README and proceed only if you understand and agree."
                     format!(
                         "{} に既存のデバッガーが検出されました。\n\n{}\n\n\
                         対応を選択してください:\n\
-                        はい = 引き継ぎ（上書き）\n\
-                        いいえ = 尊重（スキップ）\n\
+                        はい = 上書き（KaptainhooK を適用）\n\
+                        いいえ = 既存を尊重（この対象は保護しない）\n\
                         キャンセル = インストール中止",
                         target, detail
                     )
@@ -648,8 +648,8 @@ Please read the README and proceed only if you understand and agree."
                     format!(
                         "Existing debugger detected for {}.\n\n{}\n\n\
                         Choose action:\n\
-                        Yes = Take over (overwrite)\n\
-                        No = Respect (skip)\n\
+                        Yes = Take over (apply KaptainhooK)\n\
+                        No = Respect (leave existing; do not protect)\n\
                         Cancel = Cancel installation",
                         target, detail
                     )
@@ -661,11 +661,13 @@ Please read the README and proceed only if you understand and agree."
                     let q = msgbox(
                         title_quarantine,
                         if jp {
-                            "このデバッガーを不審として隔離しますか？\n\n\
-                            はい = 隔離\nいいえ = 引き継ぎ"
+                            "このデバッガーを「隔離」として扱いますか？\n\n\
+                            はい = 隔離（不審扱いでバックアップ）\n\
+                            いいえ = 上書き（通常の引き継ぎ）"
                         } else {
-                            "Treat this debugger as suspicious and quarantine it?\n\n\
-                            Yes = Quarantine\nNo = Take over"
+                            "Treat this debugger as suspicious (quarantine)?\n\n\
+                            Yes = Quarantine (mark & back up)\n\
+                            No = Take over (standard overwrite)"
                         },
                         MB_YESNO | MB_ICONWARNING,
                     );
