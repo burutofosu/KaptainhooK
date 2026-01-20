@@ -207,7 +207,7 @@ fn secure_install_bin_dir() -> Result<PathBuf> {
 const APP_NAME: &str = "KaptainhooK";
 const APP_VERSION: &str = env!("CARGO_PKG_VERSION");
 const APP_PUBLISHER: &str = "KaptainhooK Project";
-const APP_URL: &str = "https://github.com/example/kaptainhook-oss";
+const APP_URL: &str = "https://github.com/burutofosu/KaptainhooK";
 const PROGRAM_META: ProgramMetadata<'static> = ProgramMetadata {
     name: APP_NAME,
     version: APP_VERSION,
