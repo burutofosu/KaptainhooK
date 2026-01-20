@@ -141,7 +141,7 @@ impl BackgroundConfig {
 impl Default for BackgroundConfig {
     fn default() -> Self {
         Self {
-            image: "Kaptain-hook.png".into(),
+            image: "Kaptain-hook.jpg".into(),
             opacity: 30,
         }
     }
