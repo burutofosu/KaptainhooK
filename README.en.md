@@ -554,7 +554,7 @@ C:\Program Files\KaptainhooK\bin\kh-bootstrap.exe
 
 - This software runs with admin privileges
 - It modifies IFEO registry entries and can affect the system
-- Test in a non-production environment before use
+- This is strictly for a learning project, so please use it only in a test environment.
 - Check compatibility with other security software
 
 ## License
