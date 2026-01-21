@@ -583,4 +583,3 @@ C:\Program Files\KaptainhooK\bin\kh-bootstrap.exe
 ## バージョン
 
 現在のバージョン: **0.95.0**
-現在のバージョン: **0.95.0**
