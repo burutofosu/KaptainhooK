@@ -17,7 +17,7 @@ IFEOの操作や悪用への対策の一例として、必要な対策や課題�
 
 ## IFEOとは
 
-IFEO（Image File Execution Options）は、Windows が提供するデバッグ用のレジストリ機構です。特定の実行ファイルが起動されるとき、Windows が自動的に別のプログラム（デバッガ）を代わりに起動する仕組みがあります。
+IFEO（Image File Execution Options）は、Windows が提供するデバッグ用のレジストリ機構です。特定の実行ファイルが起動されるとき、Windowsが自動的に別のプログラム（デバッガ）を代わりに起動する仕組みがあります。
 
 ```
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\<実行ファイル名>
