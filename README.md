@@ -233,9 +233,6 @@ cargo build --release
 
 ショートカットを実行すると`bin/kh-setup.exe` が起動します。UACで管理者権限を与えて実行します。
 
-```
-kh-setup.exe
-```
 
 ### コマンドラインからインストール
 
