@@ -410,8 +410,8 @@ KaptainhooK/
 │   ├── tray/                        # システムトレイ
 │   └── uninstall/                   # アンインストーラ
 └── scripts/                         # ビルド・テストスクリプト
-    ├── package.ps1                  # 配布パッケージ作成
-    └── run_integration_tests.ps1    # 統合テスト
+    └── package.ps1                  # 配布パッケージ作成
+     
 ```
 
 ## 外部依存
