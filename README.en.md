@@ -6,7 +6,7 @@ A process execution control and monitoring system for Windows environments
 
 ## Overview
 
-KaptainhooK is a personal, learning-oriented project that controls and monitors the execution of dangerous scripting tools (PowerShell, cmd.exe, etc.) on Windows.
+KaptainhooK is a personal learning project that controls and monitors the execution of scripting tools that are often abused (PowerShell, cmd.exe, etc.) on Windows.
 As one example of countermeasures against IFEO manipulation and abuse, I summarized it in this form to visualize the necessary measures and challenges.
 It detects the launch of specified processes and, based on policy, allows, notifies, asks for confirmation, or blocks.
 
