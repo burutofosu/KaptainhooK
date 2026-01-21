@@ -214,13 +214,22 @@ These are common LOLBins (Living Off The Land Binaries), so they are protected b
 
 ## Installation
 
-### Install from release package (recommended)
+### Build and install from a ZIP
 
-Run the shortcut in the extracted folder; it starts `bin/kh-setup.exe` and asks for admin permission.
+Open a terminal in the folder where you extracted the ZIP file, and build with:
 
 ```
-kh-setup.exe
+cargo build --release
 ```
+
+After the build finishes, run the following to create a set of executables and a shortcut in the package folder:
+
+```
+./package.ps1
+```
+
+Running the shortcut will launch bin/kh-setup.exe. Grant administrator privileges when prompted by UAC and run it.
+
 
 ### Install from command line
 
