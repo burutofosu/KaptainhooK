@@ -217,7 +217,21 @@ KaptainhooKは「許可されたらサービスがIFEOを一瞬外す」ため�
 
 ## インストール
 
-### ZIPからビルドしてインストール
+ビルド済みパッケージはスクリプトから作成できます。
+
+### ソースからビルド
+
+```bash
+git clone https://github.com/burutofosu/KaptainhooK
+cd KaptainhooK
+
+# リリースビルド
+cargo build --release
+
+# 実行ファイルは target/release/ に生成されます
+```
+
+### ZIPからビルド
 
 ZIPファイルを展開したフォルダでターミナルを起動し、下記でビルド。
 
@@ -225,14 +239,17 @@ ZIPファイルを展開したフォルダでターミナルを起動し、下�
 cargo build --release
 ```
 
+### 配布パッケージの作成
+
 ビルド完了後、下記を実行するとpackageフォルダに実行ファイル一式とショートカットが作成されます。
 
+```powershell
+scripts/package.ps1
 ```
-./package.ps1
-```
+
+### packageフォルダからインストール
 
 ショートカットを実行すると`bin/kh-setup.exe` が起動します。UACで管理者権限を与えて実行します。
-
 
 ### コマンドラインからインストール
 
@@ -257,17 +274,7 @@ kh-setup.exe --uninstall
 kh-uninstall.exe
 ```
 
-### ソースからビルド
-
-```bash
-git clone https://github.com/burutofosu/KaptainhooK
-cd KaptainhooK
-
-# リリースビルド
-cargo build --release
-
-# 実行ファイルは target/release/ に生成されます
-```
+完全アンインストールは `kh-uninstall.exe` または `kh-setup.exe --uninstall` を使用してください。
 
 ## 使用方法
 
@@ -306,8 +313,6 @@ kh-cli.exe task-info
 # TrustedHashes更新
 kh-cli.exe trusted-hashes refresh
 ```
-
-完全アンインストールは `kh-uninstall.exe` または `kh-setup.exe --uninstall` を使用してください。
 
 ### 設定UI（kh-settings.exe）
 
@@ -411,7 +416,7 @@ KaptainhooK/
 │   └── uninstall/                   # アンインストーラ
 └── scripts/                         # ビルド・テストスクリプト
     └── package.ps1                  # 配布パッケージ作成
-     
+
 ```
 
 ## 外部依存
@@ -577,4 +582,5 @@ C:\Program Files\KaptainhooK\bin\kh-bootstrap.exe
 
 ## バージョン
 
+現在のバージョン: **0.95.0**
 現在のバージョン: **0.95.0**
