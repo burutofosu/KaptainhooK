@@ -10,6 +10,8 @@ KaptainhooK is a personal learning project that controls and monitors the execut
 As an example of IFEO operations and mitigation, it visualizes necessary countermeasures and challenges in this form.
 It detects the launch of specified processes and allows, notifies, prompts, or blocks based on policy.
 
+This is strictly for a learning project, so please use it only in a test environment.
+
 ## What is IFEO
 
 IFEO (Image File Execution Options) is a Windows registry mechanism for debugging. When a specific executable launches, Windows can automatically start a different program (a debugger) instead.
